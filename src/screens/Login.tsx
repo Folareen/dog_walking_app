@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import { supabase } from '../supabase'
 import toast from '../utils/toast'
+import useAuthStore from '../stores/useAuthStore'
 
 
 const Login = () => {
@@ -13,6 +14,8 @@ const Login = () => {
     const [submitting, setSubmitting] = useState(false)
 
     const { navigate } = useNavigation()
+
+    const { user, setUser } = useAuthStore()
 
     const handleLogin = async () => {
         try {
