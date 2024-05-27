@@ -5,12 +5,13 @@ import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { RootSiblingParent } from 'react-native-root-siblings';
-import NewGig from './src/screens/NewGig';
+import NewGig from './src/screens/Owner';
 import Login from './src/screens/Login';
 import Signup from './src/screens/Signup';
-import Gigs from './src/screens/Gigs';
 import { supabase } from './src/supabase';
 import useAuthStore from './src/stores/useAuthStore';
+import Walker from './src/screens/Walker';
+import Owner from './src/screens/Owner';
 
 const Stack = createStackNavigator()
 
@@ -46,8 +47,15 @@ const App = () => {
             {
               user ?
                 <>
-                  <Stack.Screen name='gigs' component={Gigs} />
-                  <Stack.Screen name='new-gig' component={NewGig} />
+                  {
+                    user?.user?.user_metadata?.role == 'walker' ?
+                      <Stack.Screen name='walker' component={Walker} />
+                      :
+                      user?.user?.user_metadata?.role == 'owner' ?
+                        <Stack.Screen name='owner' component={Owner} />
+                        :
+                        null
+                  }
                 </>
                 :
                 <>
