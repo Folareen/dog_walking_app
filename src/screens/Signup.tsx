@@ -1,9 +1,9 @@
-import { View, Text, ImageBackground, TextInput, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
-import toast from '../utils/toast'
+import React, { useState } from 'react'
+import { ImageBackground, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { supabase } from '../supabase'
+import toast from '../utils/toast'
 
 const Signup = () => {
     const [name, setName] = useState('')
@@ -51,13 +51,13 @@ const Signup = () => {
                 <View className='w-4/5 '>
                     <Text className='text-white text-4xl mb-6 font-opensans_bold text-center '>Welcome!</Text>
 
-                    <TextInput placeholder='Name' className='px-4 py-2.5 bg-white rounded-lg font-semibold' value={name} onChangeText={(text) => {
+                    <TextInput placeholder='Name' className='px-4 py-2.5 bg-white rounded-lg font-roboto' value={name} onChangeText={(text) => {
                         setName(text)
                     }} />
-                    <TextInput placeholder='Email Address' className='px-4 py-2.5 bg-white rounded-lg font-semibold mt-4' value={email} onChangeText={(text) => {
+                    <TextInput placeholder='Email Address' className='px-4 py-2.5 bg-white rounded-lg font-roboto mt-4' value={email} onChangeText={(text) => {
                         setEmail(text)
                     }} />
-                    <TextInput placeholder='Password' className='px-4 py-2.5 bg-white rounded-lg font-semibold mt-4' secureTextEntry={true} value={password} onChangeText={(text) => {
+                    <TextInput placeholder='Password' className='px-4 py-2.5 bg-white rounded-lg font-roboto mt-4' secureTextEntry={true} value={password} onChangeText={(text) => {
                         setPassword(text)
                     }} />
 
