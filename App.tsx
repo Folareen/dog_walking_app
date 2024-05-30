@@ -12,6 +12,9 @@ import { supabase } from './src/supabase';
 import useAuthStore from './src/stores/useAuthStore';
 import Walker from './src/screens/Walker';
 import Owner from './src/screens/Owner';
+import 'react-native-gesture-handler';
+
+SplashScreen.preventAutoHideAsync()
 
 const Stack = createStackNavigator()
 
