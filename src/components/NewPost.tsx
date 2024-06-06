@@ -77,7 +77,7 @@ const NewPost = ({ setActiveTab }: Props) => {
             }
 
             toast('Post added', 'success', 'short')
-            setActiveTab('my-posts')
+            setActiveTab('vacant')
         } catch (error: any) {
             toast(error?.message || error || (error && JSON.stringify(error)) || 'Failed to create new post', 'error', 'long')
         } finally {
