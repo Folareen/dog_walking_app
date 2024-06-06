@@ -5,7 +5,6 @@ import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { RootSiblingParent } from 'react-native-root-siblings';
-import NewGig from './src/screens/Owner';
 import Login from './src/screens/Login';
 import Signup from './src/screens/Signup';
 import { supabase } from './src/supabase';
@@ -13,6 +12,7 @@ import useAuthStore from './src/stores/useAuthStore';
 import Walker from './src/screens/Walker';
 import Owner from './src/screens/Owner';
 import 'react-native-gesture-handler';
+import WalkerProfile from './src/screens/WalkerProfile';
 
 SplashScreen.preventAutoHideAsync()
 
@@ -55,7 +55,10 @@ const App = () => {
                       <Stack.Screen name='walker' component={Walker} />
                       :
                       user?.user?.user_metadata?.role == 'owner' ?
-                        <Stack.Screen name='owner' component={Owner} />
+                        <>
+                          <Stack.Screen name='owner' component={Owner} />
+                          <Stack.Screen name='walker-profile' component={WalkerProfile} />
+                        </>
                         :
                         null
                   }
