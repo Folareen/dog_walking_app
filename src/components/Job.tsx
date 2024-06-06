@@ -16,7 +16,7 @@ type Props = {
     setActiveTab: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Gig = ({ id, dogImage, dogName, ownerName, price, location, duration, description, setActiveTab }: Props) => {
+const Job = ({ id, dogImage, dogName, ownerName, price, location, duration, description, setActiveTab }: Props) => {
     const { user } = useAuthStore()
 
     const handleApply = async () => {
@@ -26,7 +26,7 @@ const Gig = ({ id, dogImage, dogName, ownerName, price, location, duration, desc
                 .from('posts')
                 .update({ walker: user?.user?.email })
                 .eq('owner', ownerName).eq('id', id).select();
-            setActiveTab('my-gigs')
+            setActiveTab('my-jobs')
             toast('Application Successful', 'success', 'long')
         } catch (error: any) {
             toast(error?.message || error, 'error', 'long')
@@ -76,7 +76,7 @@ const Gig = ({ id, dogImage, dogName, ownerName, price, location, duration, desc
     )
 }
 
-export default Gig
+export default Job
 
 
 

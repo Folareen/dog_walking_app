@@ -5,10 +5,10 @@ import { supabase } from '../supabase'
 import ErrorMsg from './ErrorMsg'
 import Spinner from './Spinner'
 
-const MyGigs = () => {
+const MyDogWalks = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
-    const [gigs, setGigs] = useState<any>([])
+    const [jobs, setJobs] = useState<any>([])
 
     const { user } = useAuthStore()
 
@@ -24,7 +24,7 @@ const MyGigs = () => {
                     .select('*').eq('walker', user?.user?.email)
 
                 if (data) {
-                    setGigs(data)
+                    setJobs(data)
                 }
 
                 if (error) {
@@ -51,7 +51,7 @@ const MyGigs = () => {
                         :
                         <ScrollView className=''>
                             {
-                                gigs.map(({ id, created_at, image, dogName, owner, location, price, duration, description }: any) => (
+                                jobs.map(({ id, created_at, image, dogName, owner, location, price, duration, description }: any) => (
                                     <View key={id} className='flex-row my-2  mx-1 bg-gray-100 rounded-md' >
                                         <View>
                                             <Image source={image ? { uri: 'https://btrmjiumfezulcredqlj.supabase.co/storage/v1/object/public/dog-images/' + image } : require('../assets/images/auth-bg.jpg')} className='h-36 w-36 rounded-t-md' />
@@ -93,4 +93,4 @@ const MyGigs = () => {
     )
 }
 
-export default MyGigs
+export default MyDogWalks

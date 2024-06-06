@@ -3,14 +3,14 @@ import { ScrollView, View } from 'react-native'
 import useAuthStore from '../stores/useAuthStore'
 import { supabase } from '../supabase'
 import ErrorMsg from './ErrorMsg'
-import Gig from './Gig'
 import Spinner from './Spinner'
+import Job from './Job'
 
 type Props = {
     setActiveTab: React.Dispatch<React.SetStateAction<string>>
 }
 
-const AvailableGigs = ({ setActiveTab }: Props) => {
+const AvailableDogWalks = ({ setActiveTab }: Props) => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
     const [posts, setPosts] = useState<any>([])
@@ -57,7 +57,7 @@ const AvailableGigs = ({ setActiveTab }: Props) => {
                         <ScrollView className=''>
                             {
                                 posts.map(({ id, created_at, image, dogName, owner, location, price, duration, description }: any) => (
-                                    <Gig key={id} id={id} dogImage={image} dogName={dogName} ownerName={owner} location={location} price={price} duration={duration} description={description} setActiveTab={setActiveTab} />
+                                    <Job key={id} id={id} dogImage={image} dogName={dogName} ownerName={owner} location={location} price={price} duration={duration} description={description} setActiveTab={setActiveTab} />
                                 ))
                             }
                         </ScrollView>
@@ -68,4 +68,4 @@ const AvailableGigs = ({ setActiveTab }: Props) => {
     )
 }
 
-export default AvailableGigs
+export default AvailableDogWalks
