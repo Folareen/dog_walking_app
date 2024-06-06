@@ -3,14 +3,14 @@ import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React, { useState } from 'react'
 import RN, { Platform, SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
-import AvailableGigs from '../components/AvailableGigs'
-import MyGigs from '../components/MyGigs'
 import useAuthStore from '../stores/useAuthStore'
 import { supabase } from '../supabase'
 import toast from '../utils/toast'
+import MyJobs from '../components/MyDogWalks'
+import AvailableDogWalks from '../components/AvailableDogWalks'
 
 const Walker = () => {
-    const [activeTab, setActiveTab] = useState('my-gigs')
+    const [activeTab, setActiveTab] = useState('my-jobs')
     const { user, setUser } = useAuthStore()
 
     const { navigate } = useNavigation()
@@ -36,26 +36,26 @@ const Walker = () => {
 
             <View className='flex-row justify-center my-4 '>
                 <TouchableOpacity onPress={() => {
-                    setActiveTab('my-gigs')
-                }} className={`w-[48%] p-4 ${activeTab == 'my-gigs' ? 'bg-blue-950 rounded-md ' : 'bg-white'}`}>
-                    <Text className={`${activeTab == 'my-gigs' ? 'text-white ' : ''} font-roboto text-center `}>
-                        My Gigs
+                    setActiveTab('my-jobs')
+                }} className={`w-[48%] p-4 ${activeTab == 'my-jobs' ? 'bg-blue-950 rounded-md ' : 'bg-white'}`}>
+                    <Text className={`${activeTab == 'my-jobs' ? 'text-white ' : ''} font-roboto text-center `}>
+                        My Jobs
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    setActiveTab('available-gigs')
-                }} className={`w-[48%] p-4  ${activeTab == 'available-gigs' ? ' bg-blue-950 rounded-md' : 'bg-white'}`}>
-                    <Text className={`${activeTab == 'available-gigs' ? 'text-white' : 'text-blue-950'} font-roboto text-center`}>
-                        Available Gigs
+                    setActiveTab('available-jobs')
+                }} className={`w-[48%] p-4  ${activeTab == 'available-jobs' ? ' bg-blue-950 rounded-md' : 'bg-white'}`}>
+                    <Text className={`${activeTab == 'available-jobs' ? 'text-white' : 'text-blue-950'} font-roboto text-center`}>
+                        Available Jobs
                     </Text>
                 </TouchableOpacity>
             </View>
 
             {
-                activeTab == 'my-gigs' ?
-                    <MyGigs />
+                activeTab == 'my-jobs' ?
+                    <MyJobs />
                     :
-                    <AvailableGigs setActiveTab={setActiveTab} />
+                    <AvailableDogWalks setActiveTab={setActiveTab} />
             }
 
         </SafeAreaView>
