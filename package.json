@@ -12,7 +12,6 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
     "@react-native-async-storage/async-storage": "1.21.0",
-    "@react-native-picker/picker": "2.6.1",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
     "@supabase/supabase-js": "^2.43.4",
@@ -29,7 +28,6 @@
     "react-native-dotenv": "^3.4.11",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-get-random-values": "~1.8.0",
-    "react-native-picker-select": "^9.1.3",
     "react-native-reanimated": "~3.6.2",
     "react-native-root-siblings": "^5.0.1",
     "react-native-root-toast": "^3.6.0",

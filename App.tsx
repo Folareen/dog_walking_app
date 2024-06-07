@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useFonts } from 'expo-font';
@@ -11,7 +12,6 @@ import { supabase } from './src/supabase';
 import useAuthStore from './src/stores/useAuthStore';
 import Walker from './src/screens/Walker';
 import Owner from './src/screens/Owner';
-import 'react-native-gesture-handler';
 import WalkerProfile from './src/screens/WalkerProfile';
 
 SplashScreen.preventAutoHideAsync()
