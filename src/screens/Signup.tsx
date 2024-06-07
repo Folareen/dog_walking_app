@@ -6,7 +6,7 @@ import { supabase } from '../supabase'
 import toast from '../utils/toast'
 import * as ImagePicker from 'expo-image-picker'
 import { AntDesign } from '@expo/vector-icons'
-// import RNPickerSelect from 'react-native-picker-select';
+import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-get-random-values'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -193,7 +193,7 @@ const Signup = () => {
                         &&
                         <>
                             <View className='bg-white rounded-lg mt-4'>
-                                {/* <RNPickerSelect
+                                <RNPickerSelect
                                     onValueChange={(value) => setGender(value)}
                                     value={gender}
                                     items={[
@@ -202,7 +202,7 @@ const Signup = () => {
                                     ]}
                                     style={{ placeholder: { color: 'gray' }, }}
                                     placeholder={{ label: 'Gender', value: '' }}
-                                /> */}
+                                />
                             </View>
 
                             <TextInput placeholder='Profile Description' value={description} onChangeText={(text) => {
